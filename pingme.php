@@ -5,4 +5,4 @@
  * Date: 04.05.17
  * Time: 10:07
  */
-var_dump($GLOBALS);
+error_log(var_export($GLOBALS));
