@@ -10,14 +10,15 @@ $msg=explode(":",$_GET['msg'],2);
 $chat_sig=explode("_",$msg[0],2);
 $chat = $chat_sig[0];
 $cursig = $chat_sig[1];
-$expsig = sizeof($chat)+explode("",$chat)[0];
+$token = $_ENV["TOKEN"];
+$expsig = sizeof($chat)+explode("",$chat)[0]+sizeof($token);;
 if($cursig!=$expsig){
     echo "Wrong parameter msg";
     http_response_code(500);
     exit(500);
 }
 
-$token = $_ENV["TOKEN"];
+
 
 if($msg) {
     file_get_contents("https://api.telegram.org/bot" . $token . "/sendMessage?chat_id=" . $msg[0] . "&text=" . urlencode($msg[1]));
