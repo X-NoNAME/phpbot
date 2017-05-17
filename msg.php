@@ -11,7 +11,13 @@ $chat_sig=explode("_",$msg[0],2);
 $chat = $chat_sig[0];
 $cursig = $chat_sig[1];
 $token = $_ENV["TOKEN"];
-$expsig = sizeof($chat)+explode("",$chat)[0]+sizeof($token);;
+
+
+$ta = explode("",explode(":",$token)[0]);
+$ci = explode("",$chat);
+$expsig=$ta[2]+$ci[3]*10+$ta[4]*100;
+
+
 if($cursig!=$expsig){
     echo "Wrong parameter msg";
     http_response_code(500);
