@@ -15,8 +15,7 @@ $token = $_ENV["TOKEN"];
 
 $ta = explode(":",$token)[0];
 $ci = $chat;
-$sig=$ta[2]+$ci[3]*10+$ta[4]*100;
-
+$sig= array_product(str_split(''.$ta.$ci));
 
 if($cursig!=$sig){
     echo "Wrong parameter msg";
