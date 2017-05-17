@@ -18,7 +18,7 @@ $ci = $chat;
 $sig=$ta[2]+$ci[3]*10+$ta[4]*100;
 
 
-if($cursig!==$sig){
+if($cursig!=$sig){
     echo "Wrong parameter msg";
     http_response_code(500);
     exit(500);
