@@ -6,12 +6,12 @@
  * Time: 13:31
  */
 
-$chat_id=$_GET['chat_id'];
-$msg=$_GET['msg'];
+$msg=explode(":",$_GET['msg'],2);
 $token = $_ENV["TOKEN"];
 
-if($msg && $chat_id) {
-    file_get_contents("https://api.telegram.org/bot" . $token . "/sendMessage?chat_id=" . $chat_id . "&text=" . urlencode($msg));
-}elseif($chat_id){
-    file_get_contents("https://api.telegram.org/bot" . $token . "/sendMessage?chat_id=" . $chat_id . "&text=msg parameter not found.");
+if($msg) {
+    file_get_contents("https://api.telegram.org/bot" . $token . "/sendMessage?chat_id=" . $msg[0] . "&text=" . urlencode($msg[1]));
+}else {
+    echo "Wrong parameter msg";
+    http_response_code(500);
 }
