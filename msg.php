@@ -13,12 +13,12 @@ $cursig = $chat_sig[1];
 $token = $_ENV["TOKEN"];
 
 
-$ta = explode("",explode(":",$token)[0]);
-$ci = explode("",$chat);
-$expsig=$ta[2]+$ci[3]*10+$ta[4]*100;
+$ta = explode(":",$token)[0];
+$ci = $chat;
+$sig=$ta[2]+$ci[3]*10+$ta[4]*100;
 
 
-if($cursig!=$expsig){
+if($cursig!==$sig){
     echo "Wrong parameter msg";
     http_response_code(500);
     exit(500);
