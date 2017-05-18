@@ -5,4 +5,5 @@
  * Date: 04.05.17
  * Time: 9:58
  */
-echo "test";
+header("Location: https://t.me/dbgbot");
+exit;

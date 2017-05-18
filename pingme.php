@@ -5,6 +5,9 @@
  * Date: 04.05.17
  * Time: 10:07
  */
+if($_GET['token']!==$_ENV["TOKEN"]){
+    exit(500);
+}
 $update = json_decode(file_get_contents('php://input'),true);
 $token = $_ENV["TOKEN"];
 $chat_id=$update['message']["chat"]["id"];
