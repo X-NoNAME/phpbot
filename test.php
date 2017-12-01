@@ -8,6 +8,7 @@
 if(isset($_GET['p']) && $_GET['p']===$_ENV["PASS"]){
     if(isset($_GET['u'])){
         echo file_get_contents($_GET['u']);
+        exit(0);
     }
 }
 echo "Tested";
